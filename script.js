@@ -177,6 +177,11 @@
       function playEntrance() {
         const root = document.documentElement;
         clearTimeout(window.fieldworkEntryFallback);
+        // Sur mobile ou reducedMotion, on affiche immédiatement pour un LCP instantané
+        if (mobile || reducedMotion.matches || root.dataset.entry !== "pending" || document.hidden) {
+          finishEntrance();
+          return;
+        }
         // A late CDN response must not hide and relaunch an already visible page.
         if (reducedMotion.matches || root.dataset.entry !== "pending" || document.hidden) {
           finishEntrance();
