@@ -119,36 +119,45 @@
         cancelAnimationFrame(focusFrame); focusFrame = 0;
         cancelInteractions(); pieces.forEach(stop); stop(camera);
         mobile = touchLayout.matches;
-        // Measure every card, including cards hidden by the current filter, in one task.
-        cards.forEach(el => { el.hidden = false; });
         moveTo(camera, 0, 0);
         if (!mobile) {
+          // 1. Read container dimensions before mutating the DOM.
           const w = desk.clientWidth, h = desk.clientHeight;
+          // 2. Measure every card in one pass.
+          cards.forEach(el => { el.hidden = false; });
           const oreilles = document.getElementById("oreilles-card");
           const human = document.getElementById("human-card");
-          // These four home positions are intentionally unchanged.
+          const oreillesW = oreilles.offsetWidth, oreillesH = oreilles.offsetHeight;
+          const humanH = human.offsetHeight;
+          const additional = cards.slice(2);
+          const additionalSizes = additional.map(el => ({
+            el,
+            w: el.offsetWidth,
+            h: el.offsetHeight
+          }));
+
+          // 3. Apply all positions in a pure write pass.
           const positions = {
             "intro-card": [w * .055, Math.max(108, h * .19), 2],
             "window-card": [w * .445, Math.max(100, h * .13), 4],
-            "oreilles-card": [w - oreilles.offsetWidth - Math.max(50, w * .045), Math.max(185, h - oreilles.offsetHeight - 132), 3],
-            "human-card": [w * .105, h - human.offsetHeight - 104, 5]
+            "oreilles-card": [w - oreillesW - Math.max(50, w * .045), Math.max(185, h - oreillesH - 132), 3],
+            "human-card": [w * .105, h - humanH - 104, 5]
           };
           pieces.forEach(state => {
             const position = positions[state.el.id];
             if (!position) return;
             moveTo(state, position[0], position[1]); state.el.style.zIndex = position[2];
           });
-          const additional = cards.slice(2);
-          const widest = additional.reduce((width, el) => Math.max(width, el.offsetWidth), 0);
+          const widest = additionalSizes.reduce((width, item) => Math.max(width, item.w), 0);
           const pairOffset = Math.max(440, widest + 70);
           const stride = Math.max(960, w * .88, pairOffset + widest + 150);
-          additional.forEach((card, i) => {
+          additionalSizes.forEach(({ el, h: cardH }, i) => {
             const group = Math.floor(i / 2), second = i % 2 === 1;
             const x = w + 96 + group * stride + (second ? pairOffset : 0) + (group % 2 ? 16 : 0);
-            const y = second ? Math.max(185, h - card.offsetHeight - 132) - (group % 2 ? 12 : 0)
+            const y = second ? Math.max(185, h - cardH - 132) - (group % 2 ? 12 : 0)
               : Math.max(100, h * .13) + (group % 2 ? 12 : 0);
-            moveTo(states.get(card), x, y);
-            card.style.zIndex = 6 + i;
+            moveTo(states.get(el), x, y);
+            el.style.zIndex = 6 + i;
           });
           zIndex = 6 + additional.length;
         }
@@ -177,33 +186,36 @@
       function playEntrance() {
         const root = document.documentElement;
         clearTimeout(window.fieldworkEntryFallback);
-        // Sur mobile ou reducedMotion, on affiche immédiatement pour un LCP instantané
+        // Immediate reveal on mobile/reducedMotion for optimal LCP, and avoid relaunching on late CDN load.
         if (mobile || reducedMotion.matches || root.dataset.entry !== "pending" || document.hidden) {
           finishEntrance();
           return;
         }
-        // A late CDN response must not hide and relaunch an already visible page.
-        if (reducedMotion.matches || root.dataset.entry !== "pending" || document.hidden) {
-          finishEntrance();
-          return;
-        }
-        const origin = { x: desk.clientWidth / 2, y: desk.clientHeight * .47 };
-        let order = 0;
-        pieces.forEach(({ el }) => {
-          const rect = el.getBoundingClientRect();
-          if (el.hidden || !rect.width || !rect.height || rect.right <= 0 || rect.bottom <= 0 ||
-            rect.left >= desk.clientWidth || rect.top >= desk.clientHeight) return;
+        const deskW = desk.clientWidth, deskH = desk.clientHeight;
+        const origin = { x: deskW / 2, y: deskH * .47 };
+
+        // 1. Pure read phase (prevents layout thrashing).
+        const visiblePieces = pieces
+          .map(({ el }) => ({ el, hidden: el.hidden, rect: el.getBoundingClientRect() }))
+          .filter(({ hidden, rect }) => !hidden && rect.width && rect.height &&
+            rect.right > 0 && rect.bottom > 0 && rect.left < deskW && rect.top < deskH);
+
+        // 2. Pure write phase.
+        visiblePieces.forEach(({ el, rect }, order) => {
           el.classList.add("entry-piece");
           const dx = origin.x - (rect.left + rect.width / 2);
           const dy = origin.y - (rect.top + rect.height / 2);
           const ox = clamp(-dx * .075, -50, 50), oy = clamp(-dy * .075, -40, 40);
-          $(el).css({
-            "--burst-x": `${dx.toFixed(2)}px`, "--burst-y": `${dy.toFixed(2)}px`,
-            "--overshoot-x": `${ox.toFixed(2)}px`, "--overshoot-y": `${oy.toFixed(2)}px`,
-            "--settle-x": `${(-ox * .18).toFixed(2)}px`, "--settle-y": `${(-oy * .18).toFixed(2)}px`,
-            "--entry-delay": `${order++ * 80}ms`, "--entry-opacity": el.classList.contains("is-behind") ? ".55" : "1"
-          });
+          el.style.setProperty("--burst-x", `${dx.toFixed(2)}px`);
+          el.style.setProperty("--burst-y", `${dy.toFixed(2)}px`);
+          el.style.setProperty("--overshoot-x", `${ox.toFixed(2)}px`);
+          el.style.setProperty("--overshoot-y", `${oy.toFixed(2)}px`);
+          el.style.setProperty("--settle-x", `${(-ox * .18).toFixed(2)}px`);
+          el.style.setProperty("--settle-y", `${(-oy * .18).toFixed(2)}px`);
+          el.style.setProperty("--entry-delay", `${order * 80}ms`);
+          el.style.setProperty("--entry-opacity", el.classList.contains("is-behind") ? ".55" : "1");
         });
+
         root.dataset.entry = "playing";
         if (window.fieldworkRevealPending) window.fieldworkRevealPending();
         $body.addClass("is-entering");
@@ -213,7 +225,7 @@
         const rawDuration = getComputedStyle(root).getPropertyValue("--entry-duration").trim();
         const duration = rawDuration.endsWith("ms") ? parseFloat(rawDuration)
           : rawDuration.endsWith("s") ? parseFloat(rawDuration) * 1000 : 1040;
-        entranceTimer = setTimeout(finishEntrance, Math.max(1400, duration + Math.max(0, order - 1) * 80 + 100));
+        entranceTimer = setTimeout(finishEntrance, Math.max(1400, duration + Math.max(0, visiblePieces.length - 1) * 80 + 100));
       }
 
       // 02 — Time-based inertia. Pauses, cancellation and reduced motion stop it immediately.
