@@ -1,2 +1,2 @@
-# abmo-portfolio
-my personal portfolio
+# mohieddine-portfolio
+Mohieddine Abassi — personal portfolio
