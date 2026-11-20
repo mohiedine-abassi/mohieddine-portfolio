@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e0e10">
+  <meta name="description" content="Mohieddine Abassi — Frontend developer. Explore a hands-on workspace of responsive websites and e-commerce experiences.">
+  <title>Mohieddine Abassi — Frontend Fieldwork</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ccff00'/%3E%3Ctext x='12' y='46' font-size='45' font-family='Georgia' fill='%230e0e10'%3Em%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <!-- Prepaint setup. The watchdog reveals content if the CDN is slow or unavailable. -->
+  <script>
+    (function () {
+      const root = document.documentElement;
+      root.dataset.entry = "pending";
+      function revealPending() {
+        if (root.dataset.entry === "pending") root.dataset.entry = "ready";
+        clearTimeout(window.fieldworkEntryFallback);
+        document.removeEventListener("pointerdown", revealPending, true);
+        document.removeEventListener("keydown", revealPending, true);
+      }
+      window.fieldworkRevealPending = revealPending;
+      window.fieldworkEntryFallback = setTimeout(revealPending, 2400);
+      document.addEventListener("pointerdown", revealPending, true);
+      document.addEventListener("keydown", revealPending, true);
+    })();
+    try {
+      document.documentElement.dataset.theme =
+        localStorage.getItem("fieldwork-theme") === "light" ? "light" : "dark";
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+
+  <!-- Shared SVG marks; no icon font, stylesheet or runtime dependency.
+       Font Awesome Free 6.7.2 by @fontawesome — https://fontawesome.com
+       Icons: CC BY 4.0 — https://fontawesome.com/license/free
+       Copyright 2024 Fonticons, Inc. -->
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="icon-linkedin" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></symbol>
+    <symbol id="icon-upwork" viewBox="0 0 641 512"><path d="M494.7 295.6c-50.3 0-83.5-38.9-92.8-53.9c11.9-95.3 46.8-125.4 92.8-125.4c45.5 0 80.9 36.4 80.9 89.7s-35.4 89.7-80.9 89.7zm0-237.8c-81.9 0-127.8 53.4-141 108.4c-14.9-28-25.9-65.5-34.5-100.3H206v141c0 51.1-23.3 89-68.8 89s-71.6-37.8-71.6-89l.5-141H.8v141c0 41.1 13.3 78.4 37.6 105.1c25 27.5 59.2 41.8 98.8 41.8c78.8 0 133.8-60.4 133.8-146.9V112.1c8.2 31.2 27.8 91.1 65.3 143.6l-35 199.4h66.4l23.1-141.3c7.6 6.3 15.7 12 24.2 17c22.2 14 47.7 21.9 73.9 22.8c0 0 4 .2 6.1 .2c81.2 0 145.9-62.9 145.9-147.8s-64.8-148.1-146-148.1z"/></symbol>
+  </svg>
+
+  <!-- Workspace chrome, deliberately without a conventional navigation bar. -->
+  <header class="workspace-header">
+    <div class="signature"><span class="monogram" aria-hidden="true">m.a</span><div>MOHIEDDINE ABASSI<span>FRONTEND DEVELOPER</span></div></div>
+    <p class="edition"><span class="status-dot"></span> GOOD IDEAS DESERVE GREAT INTERFACES. <span class="edition-sub">LET’S BUILD YOUR NEXT ONE.</span></p>
+  </header>
+
+  <main id="desk" aria-label="Interactive portfolio workspace">
+    <div class="desk-watermark" aria-hidden="true">make it<br> <em>matter.</em></div>
+    <div id="world">
+      <section class="piece intro" id="intro-card" aria-labelledby="intro-title">
+        <button class="drag-handle intro-label" data-drag-handle data-cursor="DRAG" aria-label="Move introduction. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> THE INTERFACE IS THE EXPERIENCE.</button>
+        <h1 id="intro-title">Code with<br> <em>character.</em><span class="title-star code-mark" aria-hidden="true"><span class="code-open">&lt;&gt;</span><span class="code-close">&lt;/&gt;</span></span></h1>
+        <p class="intro-copy">I’m Mohieddine, a frontend developer.<br> I turn thoughtful design into websites<br> that feel as good as they function.</p>
+        <div class="intro-foot"><span class="tiny-cross" aria-hidden="true">+</span><p>BUILT WITH INTENTION.<br> EXPLORED ON YOUR TERMS.</p><span class="hand-note">Go on, move things.</span></div>
+      </section>
+
+      <section id="projects" aria-label="Selected projects" tabindex="-1">
+        <article class="piece project project--window" id="window-card" data-category="commerce" aria-labelledby="window-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move The Window Cleaning Market. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_01</button><span>E-COMMERCE</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--window" data-open="work-window" data-cursor="OPEN" aria-label="Open The Window Cleaning Market project"><img src="assets/window-market.webp" alt="The Window Cleaning Market homepage, with a turquoise glass facade and professional window cleaners" width="1197" height="740" draggable="false"><span class="image-label" aria-hidden="true">01 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">COMMERCE, WITHOUT FRICTION.</span>
+            <h2 id="window-title"><button class="project-title" data-open="work-window" data-preview="assets/window-market-devices.webp" data-cursor="VIEW">The Window<br> Cleaning Market <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>WooCommerce</li><li>Elementor</li><li>Payment Gateway</li><li>Tax Table</li><li>Calculation</li></ul>
+            <a class="project-link" href="https://www.windowcleaningmarket.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit The Window Cleaning Market, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="piece project project--oreilles" id="oreilles-card" data-category="experiences" aria-labelledby="oreilles-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move Les Grandes Oreilles. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_02</button><span>EXPERIENCES</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--oreilles" data-open="work-oreilles" data-cursor="OPEN" aria-label="Open Les Grandes Oreilles project"><img src="assets/grandes-oreilles.webp" alt="Les Grandes Oreilles homepage, showing a celebration with sparklers" width="1897" height="856" draggable="false"><span class="image-label" aria-hidden="true">02 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">REAL PEOPLE. SHARED MOMENTS.</span>
+            <h2 id="oreilles-title"><button class="project-title" data-open="work-oreilles" data-preview="assets/grandes-oreilles-devices.webp" data-cursor="VIEW">Les Grandes<br> Oreilles <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>WordPress</li><li>Divi</li><li>Instagram</li></ul>
+            <a class="project-link" href="https://grandesoreilles.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Les Grandes Oreilles, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+
+        <article class="piece project project--classic" id="classic-card" data-category="commerce" aria-labelledby="classic-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move Classic Vintage Car. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_03</button><span>E-COMMERCE</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--classic" data-open="work-classic" data-cursor="OPEN" aria-label="Open Classic Vintage Car project"><img src="assets/classic-vintage-car.webp" alt="Classic Vintage Car desktop homepage" width="1900" height="841" loading="lazy" decoding="async" draggable="false"><span class="image-label" aria-hidden="true">03 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">KEEPING CLASSICS IN VIEW.</span>
+            <h2 id="classic-title"><button class="project-title" data-open="work-classic" data-preview="assets/classic-vintage-car-devices.webp" data-cursor="VIEW">Classic Vintage<br> Car <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>Divi</li><li>WooCommerce</li><li>Filters</li><li>Search Tool</li><li>ACF</li></ul>
+            <a class="project-link" href="https://classic-vintage-car.ch/" target="_blank" rel="noopener noreferrer" aria-label="Visit Classic Vintage Car, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="piece project project--reviewbloom" id="reviewbloom-card" data-category="services" aria-labelledby="reviewbloom-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move ReviewBloom. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_04</button><span>SERVICES</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--reviewbloom" data-open="work-reviewbloom" data-cursor="OPEN" aria-label="Open ReviewBloom project"><img src="assets/reviewbloom.webp" alt="ReviewBloom desktop homepage" width="1297" height="2048" loading="lazy" decoding="async" draggable="false"><span class="image-label" aria-hidden="true">04 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">REPUTATION, IN FOCUS.</span>
+            <h2 id="reviewbloom-title"><button class="project-title" data-open="work-reviewbloom" data-preview="assets/reviewbloom.webp" data-cursor="VIEW">ReviewBloom <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>WordPress</li><li>Elementor</li><li>Lead Generation Strategy</li><li>Data Analytics</li><li>Google My Business</li></ul>
+            <a class="project-link" href="https://reviewbloom.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit ReviewBloom, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="piece project project--motion" id="motion-card" data-category="services" aria-labelledby="motion-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move Stop &amp; Motion. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_05</button><span>SERVICES</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--motion" data-open="work-motion" data-cursor="OPEN" aria-label="Open Stop &amp; Motion project"><img src="assets/stop-motion.webp" alt="Stop &amp; Motion desktop homepage" width="1901" height="866" loading="lazy" decoding="async" draggable="false"><span class="image-label" aria-hidden="true">05 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">IDEAS, SET IN MOTION.</span>
+            <h2 id="motion-title"><button class="project-title" data-open="work-motion" data-preview="assets/stop-motion-devices.webp" data-cursor="VIEW">Stop &amp;<br> Motion <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>Divi</li><li>Forms</li><li>Video</li><li>SEO</li><li>Performance Management</li><li>WordPress</li></ul>
+            <a class="project-link" href="https://stop-and-motion.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Stop &amp; Motion, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="piece project project--lofts" id="lofts-card" data-category="services" aria-labelledby="lofts-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move Atelier des Lofts Thonon. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_06</button><span>SERVICES</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--lofts" data-open="work-lofts" data-cursor="OPEN" aria-label="Open Atelier des Lofts Thonon project"><img src="assets/atelier-lofts.webp" alt="Atelier des Lofts Thonon desktop homepage" width="1897" height="866" loading="lazy" decoding="async" draggable="false"><span class="image-label" aria-hidden="true">06 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">SPACES WITH A SECOND LIFE.</span>
+            <h2 id="lofts-title"><button class="project-title" data-open="work-lofts" data-preview="assets/atelier-lofts-devices.webp" data-cursor="VIEW">Atelier des<br> Lofts Thonon <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>WordPress</li><li>Divi</li><li>Gallery Website</li></ul>
+            <a class="project-link" href="https://atelierdeslofts-thonon.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Atelier des Lofts Thonon, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="piece project project--legend" id="legend-card" data-category="commerce" aria-labelledby="legend-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move Legend Chamonix. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_07</button><span>E-COMMERCE</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--legend" data-open="work-legend" data-cursor="OPEN" aria-label="Open Legend Chamonix project"><img src="assets/legend-chamonix.webp" alt="Legend Chamonix desktop homepage" width="1887" height="808" loading="lazy" decoding="async" draggable="false"><span class="image-label" aria-hidden="true">07 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">MADE FOR MOUNTAIN DAYS.</span>
+            <h2 id="legend-title"><button class="project-title" data-open="work-legend" data-preview="assets/legend-chamonix-product.webp" data-cursor="VIEW">Legend<br> Chamonix <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>Multilingual Translation</li><li>Booking Services</li><li>WooCommerce</li><li>Divi</li><li>Retail Design</li></ul>
+            <a class="project-link" href="https://legend-chamonix.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Legend Chamonix, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="piece project project--medical" id="medical-card" data-category="commerce" aria-labelledby="medical-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move MEDICAL SANTE PRO. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_08</button><span>E-COMMERCE</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--medical" data-open="work-medical" data-cursor="OPEN" aria-label="Open MEDICAL SANTE PRO project"><img src="assets/medical-sante-pro.webp" alt="MEDICAL SANTE PRO desktop homepage" width="1901" height="865" loading="lazy" decoding="async" draggable="false"><span class="image-label" aria-hidden="true">08 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">ESSENTIALS FOR PROFESSIONAL CARE.</span>
+            <h2 id="medical-title"><button class="project-title" data-open="work-medical" data-preview="assets/medical-sante-pro-devices.webp" data-cursor="VIEW">MEDICAL<br> SANTE PRO <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>Multilingual Translation</li><li>WordPress</li><li>WooCommerce</li></ul>
+            <a class="project-link" href="http://medicalsantepro.tn/" target="_blank" rel="noopener noreferrer" aria-label="Visit MEDICAL SANTE PRO, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="piece project project--invest" id="invest-card" data-category="services" aria-labelledby="invest-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move Invest Prestige. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_09</button><span>SERVICES</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--invest" data-open="work-invest" data-cursor="OPEN" aria-label="Open Invest Prestige project"><img src="assets/invest-prestige.webp" alt="Invest Prestige desktop homepage" width="1187" height="866" loading="lazy" decoding="async" draggable="false"><span class="image-label" aria-hidden="true">09 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">PROPERTY, WITH PERSPECTIVE.</span>
+            <h2 id="invest-title"><button class="project-title" data-open="work-invest" data-preview="assets/invest-prestige-devices.webp" data-cursor="VIEW">Invest<br> Prestige <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>WordPress</li><li>Divi</li><li>Gallery Website</li></ul>
+            <a class="project-link" href="https://invest-prestige.com/accueil/" target="_blank" rel="noopener noreferrer" aria-label="Visit Invest Prestige, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="piece project project--safrans" id="safrans-card" data-category="experiences" aria-labelledby="safrans-title">
+          <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move Les Vieux Safrans d&#x27;Annecy. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> PROJECT_10</button><span>EXPERIENCES</span><span class="card-dot" aria-hidden="true"></span></div>
+          <button class="project-image media media--safrans" data-open="work-safrans" data-cursor="OPEN" aria-label="Open Les Vieux Safrans d&#x27;Annecy project"><img src="assets/vieux-safrans.webp" alt="Les Vieux Safrans d&#x27;Annecy desktop homepage" width="1521" height="690" loading="lazy" decoding="async" draggable="false"><span class="image-label" aria-hidden="true">10 / LIVE WEBSITE ↗</span></button>
+          <div class="project-body">
+            <span class="eyebrow">KEEPING HERITAGE AFLOAT.</span>
+            <h2 id="safrans-title"><button class="project-title" data-open="work-safrans" data-preview="assets/vieux-safrans-devices.webp" data-cursor="VIEW">Les Vieux Safrans<br> d&#x27;Annecy <span aria-hidden="true">↗</span></button></h2>
+            <ul class="tags" aria-label="Technologies"><li>WordPress</li><li>Divi</li><li>Gallery Website</li></ul>
+            <a class="project-link" href="https://www.vieuxsafrans.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Les Vieux Safrans d&#x27;Annecy, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE SITE</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </section>
+
+      <aside class="piece human-note" id="human-card" aria-label="Meet the developer">
+        <div class="card-bar"><button class="drag-handle" data-drag-handle data-cursor="DRAG" aria-label="Move developer note. Use arrow keys; Shift moves farther."><span class="grip" aria-hidden="true">⠿</span> A NOTE FROM ME</button><span aria-hidden="true">↙</span></div>
+        <button class="human-content" data-open="about" data-cursor="OPEN"><img src="assets/mohieddine.webp" alt="Portrait of Mohieddine Abassi" width="1529" height="2048" draggable="false"><span>A human<br> behind<br> <em>the pixels.</em><small>MEET THE DEVELOPER ↗</small></span></button>
+      </aside>
+      <div class="desk-annotation" aria-hidden="true"><span>↗</span> A small selection.<br> A lot of attention to detail.</div>
+    </div>
+    <div class="stack-controls" aria-label="Browse projects"><button id="previous-project" aria-label="Previous project">←</button><p><span id="project-position">01 / 10</span><span class="swipe-hint">SWIPE TO EXPLORE</span><span class="desktop-hint">EXPLORE THE WORK</span></p><button id="next-project" aria-label="Next project">→</button></div>
+  </main>
+
+  <div class="workspace-footer"><a id="coordinates" class="location-link" href="https://www.openstreetmap.org/?mlat=36.7988&amp;mlon=10.1857#map=11/36.7994/10.1857" target="_blank" rel="noopener noreferrer" aria-label="Tunisia, 36.7988 degrees north, 10.1857 degrees east. Open map in a new tab."><span class="location-pin" aria-hidden="true"></span> TUNISIA · 36.7988° N / 10.1857° E <span aria-hidden="true">↗</span></a><span aria-hidden="true">DRAG THE CANVAS · REARRANGE THE WORK</span></div>
+  <nav class="dock" aria-label="Workspace controls">
+    <button id="reset-view" class="dock-button" data-magnet data-cursor="RESET" aria-label="Reset workspace and show all projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 12h8m-4-4v8"/></svg><span data-scramble aria-hidden="true">Reset</span></button>
+    <div class="filter-wrap"><button id="filter-toggle" class="dock-button" data-magnet data-cursor="FILTER" aria-expanded="false" aria-controls="filter-panel" aria-label="Filter projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/></svg><span data-scramble aria-hidden="true">Filter</span></button>
+      <div id="filter-panel" class="filter-panel" role="group" aria-label="Project categories" hidden><p>SHOW ON THE DESK</p><button data-filter="all" aria-pressed="true">All projects <span>10</span></button><button data-filter="commerce" aria-pressed="false">E-commerce <span>04</span></button><button data-filter="experiences" aria-pressed="false">Experiences <span>02</span></button><button data-filter="services" aria-pressed="false">Services <span>04</span></button></div>
+    </div>
+    <span class="dock-divider" aria-hidden="true"></span>
+    <button id="theme-toggle" class="dock-button" data-magnet data-cursor="SWITCH" aria-label="Light mode" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg><span id="theme-label" aria-hidden="true">Light</span></button>
+    <button id="about-button" class="dock-button" data-open="about" data-magnet data-cursor="OPEN" aria-label="About Mohieddine"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></svg><span data-scramble aria-hidden="true">About</span></button>
+    <button class="dock-button dock-contact" data-open="contact" data-magnet data-cursor="HELLO" aria-label="Contact Mohieddine"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 6 9 7 9-7"/></svg><span data-scramble aria-hidden="true">Let’s talk</span></button>
+  </nav>
+
+  <!-- A permanent contact action, separate from the existing dock. -->
+  <a class="whatsapp-fab" data-whatsapp data-cursor="CHAT" href="https://wa.me/21653404343?text=Hi%20Mohieddine%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat with Mohieddine on WhatsApp at +216 53 404 343, opens in a new tab">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.2 7.6c-.5.1-.9.7-.8 1.5.2 2.8 3 5.6 5.8 6 .8.1 1.5-.3 1.7-.9l.3-1-2.1-1-.8.8a7 7 0 0 1-2.5-2.5l.7-.8-1-2.2Z"/></svg>
+    <span>LET’S CHAT <span aria-hidden="true">↗</span></span>
+  </a>
+
+  <figure id="hover-preview" class="hover-preview" aria-hidden="true"><div><img alt="" draggable="false"></div><figcaption>RESPONSIVE DESIGN <span>↗</span></figcaption></figure>
+  <div id="cursor" class="cursor" aria-hidden="true"><span></span></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+
+  <!-- Native modal semantics provide an inert background and keyboard containment. -->
+  <dialog id="drawer" class="drawer" aria-labelledby="drawer-title">
+    <div class="drawer-top">
+      <span id="drawer-kicker">FIELDWORK / INSPECT</span>
+      <div class="drawer-actions">
+        <a class="drawer-whatsapp" data-whatsapp href="https://wa.me/21653404343?text=Hi%20Mohieddine%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat with Mohieddine on WhatsApp, opens in a new tab"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.2 7.6c-.5.1-.9.7-.8 1.5.2 2.8 3 5.6 5.8 6 .8.1 1.5-.3 1.7-.9l.3-1-2.1-1-.8.8a7 7 0 0 1-2.5-2.5l.7-.8-1-2.2Z"/></svg><span>WHATSAPP ↗</span></a>
+        <button id="close-drawer" class="close-button" aria-label="Close details"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+    <div id="drawer-content" class="drawer-content"></div>
+  </dialog>
+
+  <template id="work-window">
+    <p class="eyebrow">PROJECT 01 / E-COMMERCE</p><h2 id="drawer-title">The Window<br> <em>Cleaning Market.</em></h2>
+    <p class="drawer-lead">International e-commerce platform supplying professional window cleaning equipment, carbon fiber water-fed poles, pure water filtration systems, and consumable accessories.</p>
+    <ul class="tags"><li>WooCommerce</li><li>Elementor</li><li>Payment Gateway</li><li>Tax Table</li><li>Calculation</li></ul>
+    <figure class="case-image media media--window"><img src="assets/window-market-devices.webp" alt="The Window Cleaning Market across desktop, tablet and mobile layouts" width="1920" height="1080" loading="lazy"><figcaption>THE STOREFRONT, ACROSS SCREEN SIZES.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>A specialist product catalogue for professional window cleaners, bringing equipment, filtration systems and everyday accessories into one online store.</p></section><section><h3>The frontend scope</h3><p>WooCommerce and Elementor interfaces, with payment gateway integration, tax tables and calculation features supporting the purchasing journey.</p></section></div>
+    <figure class="case-image media media--window"><img src="assets/window-market.webp" alt="The Window Cleaning Market desktop homepage" width="1197" height="740" loading="lazy"></figure>
+    <a class="primary-link" href="https://www.windowcleaningmarket.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit The Window Cleaning Market, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-oreilles">
+    <p class="eyebrow">PROJECT 02 / EXPERIENCES</p><h2 id="drawer-title">Les Grandes<br> <em>Oreilles.</em></h2>
+    <p class="drawer-lead">Event agency based in Annecy providing outdoor adventures, corporate team-building retreats, and private celebrations.</p>
+    <ul class="tags"><li>WordPress</li><li>Divi</li><li>Instagram</li></ul>
+    <figure class="case-image media media--oreilles"><img src="assets/grandes-oreilles-devices.webp" alt="Les Grandes Oreilles website across desktop, tablet and mobile, including its Instagram feed" width="1920" height="1080" loading="lazy"><figcaption>SHARED EXPERIENCES. EVERY SCREEN.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>An Annecy event agency connecting people through outdoor adventures, team gatherings and personal celebrations.</p></section><section><h3>The frontend scope</h3><p>A WordPress and Divi website presenting the agency’s experiences, with Instagram integration connecting the website to its social content.</p></section></div>
+    <figure class="case-image media media--oreilles"><img src="assets/grandes-oreilles.webp" alt="Les Grandes Oreilles desktop homepage" width="1897" height="856" loading="lazy"></figure>
+    <a class="primary-link" href="https://grandesoreilles.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Les Grandes Oreilles, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-classic">
+    <p class="eyebrow">PROJECT 03 / E-COMMERCE</p><h2 id="drawer-title">Classic Vintage<br> <em>Car</em></h2>
+    <p class="drawer-lead">Swiss brokerage and consignment platform for classic cars, collector automobiles, and modern youngtimers.</p>
+    <ul class="tags"><li>Divi</li><li>WooCommerce</li><li>Filters</li><li>Search Tool</li><li>ACF</li></ul>
+    <figure class="case-image media media--classic"><img src="assets/classic-vintage-car-devices.webp" alt="Classic Vintage Car website across desktop, tablet and mobile layouts" width="1920" height="1080" loading="lazy" decoding="async"><figcaption>THE WEBSITE, ACROSS SCREEN SIZES.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>A Swiss brokerage and consignment platform dedicated to classic cars, collector automobiles and modern youngtimers.</p></section><section><h3>The frontend scope</h3><p>A Divi and WooCommerce implementation with filters, a search tool and ACF.</p></section></div>
+    <figure class="case-image media media--classic"><img src="assets/classic-vintage-car.webp" alt="Classic Vintage Car desktop homepage" width="1900" height="841" loading="lazy" decoding="async"></figure>
+    <a class="primary-link" href="https://classic-vintage-car.ch/" target="_blank" rel="noopener noreferrer" aria-label="Visit Classic Vintage Car, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-reviewbloom">
+    <p class="eyebrow">PROJECT 04 / SERVICES</p><h2 id="drawer-title"><em>ReviewBloom</em></h2>
+    <p class="drawer-lead">B2B SaaS platform and service focused on automated Google review generation, online reputation management, and local search visibility.</p>
+    <ul class="tags"><li>WordPress</li><li>Elementor</li><li>Lead Generation Strategy</li><li>Data Analytics</li><li>Google My Business</li></ul>
+    <figure class="case-image media media--reviewbloom"><img src="assets/reviewbloom.webp" alt="ReviewBloom website overview" width="1297" height="2048" loading="lazy" decoding="async"><figcaption>A CLOSER LOOK AT THE WEBSITE.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>A B2B platform and service focused on Google reviews, online reputation and local search visibility.</p></section><section><h3>The frontend scope</h3><p>A WordPress and Elementor frontend, with lead generation strategy, data analytics and Google My Business in scope.</p></section></div>
+    <figure class="case-image media media--reviewbloom"><img src="assets/reviewbloom-details.webp" alt="ReviewBloom website details" width="1284" height="2048" loading="lazy" decoding="async"></figure>
+    <a class="primary-link" href="https://reviewbloom.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit ReviewBloom, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-motion">
+    <p class="eyebrow">PROJECT 05 / SERVICES</p><h2 id="drawer-title">Stop &amp;<br> <em>Motion</em></h2>
+    <p class="drawer-lead">Showcase website for an audiovisual production and creative studio specializing in 2D/3D motion graphics, brand identity, and commercial video.</p>
+    <ul class="tags"><li>Divi</li><li>Forms</li><li>Video</li><li>SEO</li><li>Performance Management</li><li>WordPress</li></ul>
+    <figure class="case-image media media--motion"><img src="assets/stop-motion-devices.webp" alt="Stop &amp; Motion website across desktop, tablet and mobile layouts" width="1920" height="1080" loading="lazy" decoding="async"><figcaption>THE WEBSITE, ACROSS SCREEN SIZES.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>A creative studio working across audiovisual production, 2D/3D motion graphics, brand identity and commercial video.</p></section><section><h3>The frontend scope</h3><p>A WordPress and Divi showcase with forms and video, alongside SEO and performance management.</p></section></div>
+    <figure class="case-image media media--motion"><img src="assets/stop-motion.webp" alt="Stop &amp; Motion desktop homepage" width="1901" height="866" loading="lazy" decoding="async"></figure>
+    <a class="primary-link" href="https://stop-and-motion.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Stop &amp; Motion, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-lofts">
+    <p class="eyebrow">PROJECT 06 / SERVICES</p><h2 id="drawer-title">Atelier des<br> <em>Lofts Thonon</em></h2>
+    <p class="drawer-lead">Property development and architectural renovation firm focused on industrial lofts and luxury living spaces around Lake Geneva.</p>
+    <ul class="tags"><li>WordPress</li><li>Divi</li><li>Gallery Website</li></ul>
+    <figure class="case-image media media--lofts"><img src="assets/atelier-lofts-devices.webp" alt="Atelier des Lofts Thonon website across desktop, tablet and mobile layouts" width="1920" height="1080" loading="lazy" decoding="async"><figcaption>THE WEBSITE, ACROSS SCREEN SIZES.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>A property development and renovation firm focused on industrial lofts and luxury living spaces around Lake Geneva.</p></section><section><h3>The frontend scope</h3><p>A WordPress and Divi gallery website presenting the firm&#x27;s architectural work.</p></section></div>
+    <figure class="case-image media media--lofts"><img src="assets/atelier-lofts.webp" alt="Atelier des Lofts Thonon desktop homepage" width="1897" height="866" loading="lazy" decoding="async"></figure>
+    <a class="primary-link" href="https://atelierdeslofts-thonon.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Atelier des Lofts Thonon, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-legend">
+    <p class="eyebrow">PROJECT 07 / E-COMMERCE</p><h2 id="drawer-title">Legend<br> <em>Chamonix</em></h2>
+    <p class="drawer-lead">Outdoor sports retailer and bike rental specialist located in Chamonix-Mont-Blanc, serving local mountain athletes and international travelers.</p>
+    <ul class="tags"><li>Multilingual Translation</li><li>Booking Services</li><li>WooCommerce</li><li>Divi</li><li>Retail Design</li></ul>
+    <figure class="case-image media media--legend"><img src="assets/legend-chamonix.webp" alt="Legend Chamonix desktop homepage" width="1887" height="808" loading="lazy" decoding="async"><figcaption>THE STOREFRONT, UP CLOSE.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>An outdoor sports retailer and bike rental specialist serving mountain athletes and international visitors in Chamonix-Mont-Blanc.</p></section><section><h3>The frontend scope</h3><p>Divi and WooCommerce, with multilingual translation, booking services and retail design.</p></section></div>
+    <figure class="case-image media media--legend"><img src="assets/legend-chamonix-product.webp" alt="Legend Chamonix product page" width="1920" height="1746" loading="lazy" decoding="async"></figure>
+    <a class="primary-link" href="https://legend-chamonix.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Legend Chamonix, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-medical">
+    <p class="eyebrow">PROJECT 08 / E-COMMERCE</p><h2 id="drawer-title">MEDICAL<br> <em>SANTE PRO</em></h2>
+    <p class="drawer-lead">B2B medical supply portal distributing professional medical devices, surgical disposables, and clinic furnishings.</p>
+    <ul class="tags"><li>Multilingual Translation</li><li>WordPress</li><li>WooCommerce</li></ul>
+    <figure class="case-image media media--medical"><img src="assets/medical-sante-pro-devices.webp" alt="MEDICAL SANTE PRO website across desktop, tablet and mobile layouts" width="1920" height="1080" loading="lazy" decoding="async"><figcaption>THE WEBSITE, ACROSS SCREEN SIZES.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>A B2B portal supplying professional medical devices, surgical disposables and furnishings for clinics.</p></section><section><h3>The frontend scope</h3><p>A WordPress and WooCommerce website with multilingual translation.</p></section></div>
+    <figure class="case-image media media--medical"><img src="assets/medical-sante-pro.webp" alt="MEDICAL SANTE PRO desktop homepage" width="1901" height="865" loading="lazy" decoding="async"></figure>
+    <a class="primary-link" href="http://medicalsantepro.tn/" target="_blank" rel="noopener noreferrer" aria-label="Visit MEDICAL SANTE PRO, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-invest">
+    <p class="eyebrow">PROJECT 09 / SERVICES</p><h2 id="drawer-title">Invest<br> <em>Prestige</em></h2>
+    <p class="drawer-lead">Wealth management and real estate advisory boutique assisting clients with high-yield acquisitions and tax-advantaged property investment.</p>
+    <ul class="tags"><li>WordPress</li><li>Divi</li><li>Gallery Website</li></ul>
+    <figure class="case-image media media--invest"><img src="assets/invest-prestige-devices.webp" alt="Invest Prestige website across desktop, tablet and mobile layouts" width="1920" height="1080" loading="lazy" decoding="async"><figcaption>THE WEBSITE, ACROSS SCREEN SIZES.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>A wealth management and real estate advisory boutique focused on property acquisitions and investment.</p></section><section><h3>The frontend scope</h3><p>A WordPress and Divi gallery website presenting the firm&#x27;s advisory work.</p></section></div>
+    <figure class="case-image media media--invest"><img src="assets/invest-prestige.webp" alt="Invest Prestige desktop homepage" width="1187" height="866" loading="lazy" decoding="async"></figure>
+    <a class="primary-link" href="https://invest-prestige.com/accueil/" target="_blank" rel="noopener noreferrer" aria-label="Visit Invest Prestige, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="work-safrans">
+    <p class="eyebrow">PROJECT 10 / EXPERIENCES</p><h2 id="drawer-title">Les Vieux Safrans<br> <em>d&#x27;Annecy</em></h2>
+    <p class="drawer-lead">Showcase and community portal for a French heritage association based on Lake Annecy, dedicated to restoring, preserving, and sailing traditional wooden boats.</p>
+    <ul class="tags"><li>WordPress</li><li>Divi</li><li>Gallery Website</li></ul>
+    <figure class="case-image media media--safrans"><img src="assets/vieux-safrans-devices.webp" alt="Les Vieux Safrans d&#x27;Annecy website across desktop, tablet and mobile layouts" width="1920" height="1080" loading="lazy" decoding="async"><figcaption>THE WEBSITE, ACROSS SCREEN SIZES.</figcaption></figure>
+    <div class="case-grid"><section><h3>The context</h3><p>A Lake Annecy heritage association dedicated to restoring, preserving and sailing traditional wooden boats.</p></section><section><h3>The frontend scope</h3><p>A WordPress and Divi gallery website presenting the association and its wooden-boat heritage.</p></section></div>
+    <figure class="case-image media media--safrans"><img src="assets/vieux-safrans.webp" alt="Les Vieux Safrans d&#x27;Annecy desktop homepage" width="1521" height="690" loading="lazy" decoding="async"></figure>
+    <a class="primary-link" href="https://www.vieuxsafrans.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Les Vieux Safrans d&#x27;Annecy, opens in a new tab"><span data-scramble aria-hidden="true">VISIT LIVE WEBSITE</span><span aria-hidden="true">↗</span></a>
+  </template>
+  <template id="about" data-drawer-label="BEHIND THE BUILD">
+    <p class="eyebrow">THE PERSON / THE PRACTICE</p><h2 id="drawer-title">A developer.<br> <em>A detail person.</em></h2>
+    <div class="about-intro"><img class="portrait" src="assets/mohieddine.webp" alt="Mohieddine Abassi" width="1529" height="2048"><div><span class="experience">10<span>+ YEARS</span></span><p>Hi, I’m Mohieddine Abassi. I turn ideas into responsive web experiences, with over a decade of experience in frontend development.</p></div></div>
+    <a class="upwork-proof" data-upwork href="https://www.upwork.com/freelancers/~01568f6959753d0af0" target="_blank" rel="noopener noreferrer" aria-label="View my Upwork profile: Top Rated, 100% Job Success. Opens in a new tab."><span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 3 2 3.5.5.5 3.5 2 4-2 3-.5 3.5-3.5.5-3 3-3-3-3.5-.5L5 15l-2-3 2-4 .5-3.5L9 4Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><span class="proof-copy"><span>TOP RATED ON UPWORK</span><strong>100% Job Success</strong></span><span class="proof-arrow" aria-hidden="true">↗</span></a>
+
+    <p class="drawer-lead">I work with digital agencies, businesses and growing brands that need a dependable partner for both the visual details and the technical delivery. My focus is thoughtful interface integration, maintainable customization and web performance.</p>
+    <section class="client-context" aria-labelledby="clients-title">
+      <h3 class="section-label" id="clients-title">WHO I WORK WITH / WHAT I BUILD</h3>
+      <ul class="client-types"><li>Digital agencies</li><li>Businesses & brands</li><li>Training & associations</li></ul>
+      <p>From WordPress websites and WooCommerce stores to custom interfaces, redesigns and automation workflows, I help shape the brief, build the experience and keep it improving after launch.</p>
+    </section>
+
+    <h3 class="section-label">MY EVERYDAY TOOLKIT</h3>
+    <div class="toolkit-grid">
+      <section class="toolkit-card"><span class="toolkit-index">01 / DESIGN & UI</span><h4>From idea to interface.</h4><ul class="tool-tags"><li>Figma</li><li>Adobe Creative Suite</li><li>Adobe XD</li><li>Canva</li></ul><p>Visual exploration, interface layouts and careful design integration, with a consistent look and feel across every screen.</p></section>
+      <section class="toolkit-card"><span class="toolkit-index">02 / FRONTEND & CODE</span><h4>Details that feel right.</h4><ul class="tool-tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>jQuery</li></ul><p>Responsive layouts, purposeful interactions and maintainable code, with close attention to usability and the final layer of polish.</p></section>
+      <section class="toolkit-card"><span class="toolkit-index">03 / DEVELOPMENT & CMS</span><h4>Built for real business.</h4><ul class="tool-tags"><li>WordPress</li><li>WooCommerce</li><li>Elementor</li><li>Divi</li></ul><p>Custom websites and storefronts, theme and plugin customization, and ongoing improvements to performance and stability.</p><span class="toolkit-support">WORKFLOW / GitHub · VS Code · npm</span></section>
+      <section class="toolkit-card"><span class="toolkit-index">04 / AI & AUTOMATION</span><h4>More room for good ideas.</h4><ul class="tool-tags"><li>Lovable</li><li>Perplexity</li><li>Make</li><li>n8n</li></ul><p>AI-assisted exploration and practical workflows that connect tools, reduce repetitive tasks and support thoughtful delivery.</p></section>
+    </div>
+    <p class="quality-note"><span>QUALITY IN THE LOOP</span>PageSpeed Insights · GTmetrix · Wordfence<br>Performance, reliability and ongoing care are part of the process.</p>
+    <a class="primary-link" href="mailto:mohiedineabassi@gmail.com">LET’S BUILD SOMETHING <span aria-hidden="true">↗</span></a>
+    <div class="profile-links">
+      <a class="text-link platform-link platform-link--linkedin" href="https://www.linkedin.com/in/mohieddineabassi/" target="_blank" rel="noopener noreferrer"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-linkedin" width="24" height="24"/></svg><span>Find me on LinkedIn</span><span class="sr-only">(opens in a new tab)</span><span class="platform-link-arrow" aria-hidden="true">↗</span></a>
+      <a class="text-link platform-link platform-link--upwork" data-upwork href="https://www.upwork.com/freelancers/~01568f6959753d0af0" target="_blank" rel="noopener noreferrer"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-upwork" width="24" height="24"/></svg><span>Hire me on Upwork</span><span class="sr-only">(opens in a new tab)</span><span class="platform-link-arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </template>
+  <template id="contact" data-drawer-label="LET’S MAKE IT HAPPEN">
+    <p class="eyebrow">START A CONVERSATION</p><h2 id="drawer-title">Good things<br> <em>start with hello.</em></h2>
+    <p class="drawer-lead">Have a website to build, a storefront to improve, or an interface that deserves more care? Tell me what you have in mind.</p>
+    <div class="contact-card contact-card--signal">
+      <div class="contact-card-heading"><span class="eyebrow">YOUR NEXT IDEA STARTS HERE</span><span class="contact-mail-stamp" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 6 9 7 9-7"/></svg></span></div>
+      <!-- Keep only the address in this anchor: the copy action reads its text. -->
+      <a id="contact-email" href="mailto:mohiedineabassi@gmail.com">mohiedineabassi<wbr>@gmail.com</a>
+      <p class="contact-card-copy">A brief, a question, a first hello. My inbox is open.</p>
+      <button class="copy-button" data-copy-email aria-label="Copy email address"><span data-scramble aria-hidden="true">COPY EMAIL ADDRESS</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M16 8V3H3v13h5"/></svg></button>
+    </div>
+    <div class="contact-options" aria-label="More ways to get in touch">
+      <a class="contact-option contact-option--linkedin" href="https://www.linkedin.com/in/mohieddineabassi/" target="_blank" rel="noopener noreferrer">
+        <span class="contact-option-top"><span class="platform-icon-tile"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-linkedin" width="24" height="24"/></svg></span><span class="contact-option-arrow" aria-hidden="true">↗</span></span>
+        <span class="eyebrow">GOOD CONNECTIONS START HERE</span><strong>Let’s connect<br>on LinkedIn.</strong>
+        <span class="contact-description">Connect, share an idea, and let’s see what comes next.</span>
+        <span class="contact-option-meta">A GOOD PLACE TO SAY HELLO</span><span class="sr-only">Opens in a new tab</span>
+      </a>
+      <a class="contact-option contact-option--upwork" data-upwork href="https://www.upwork.com/freelancers/~01568f6959753d0af0" target="_blank" rel="noopener noreferrer">
+        <span class="contact-option-top"><span class="platform-icon-tile"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-upwork" width="24" height="24"/></svg></span><span class="contact-option-arrow" aria-hidden="true">↗</span></span>
+        <span class="eyebrow">LET’S BUILD SOMETHING GREAT</span><strong>Hire me now<br>on Upwork.</strong>
+        <span class="contact-description">Bring your brief. Let’s turn the next step into a great website.</span>
+        <span class="contact-option-meta">Top Rated · 100% Job Success</span><span class="sr-only">Opens in a new tab</span>
+      </a>
+    </div>
+    <p class="contact-note">A little context goes a long way.<br> Share your project, your goals, and your timeline.</p>
+  </template>
+
+  <noscript><div class="load-notice">Enable JavaScript to move the workspace and open details. The project links still work. Contact: <a href="mailto:mohiedineabassi@gmail.com">mohiedineabassi@gmail.com</a>.</div></noscript>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
